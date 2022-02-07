@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<noscript>
+    Sorry, your browser doesn't support JavaScript.
+</noscript>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <script type="text/javascript" src="js/epicGames.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>EPIC GAMES SELF-ORDER KIOSK</h1>
+        </div>
+    </header>
+    <table class="mainItemTable" style="width:100%;">
+        <tr>
+            <th>Call Of Duty</th>
+            <th>PUBG</th>
+            <th>Assasin's Creed</th>
+            <th>Need For Speed</th>
+            <th>Tomb Raider</th>
+        </tr>
+        <tr>
+            <td><img src="imgs/callofduty.jpg" alt="Call Of Duty"></td>
+            <td><img src="imgs/pubg.jpg" alt="PUBG"></td>
+            <td><img src="imgs/ac.jpg" alt="Assasin's Creed"></td>
+            <td><img src="imgs/nos.jpg" alt="Need For Speed"></td>
+            <td><img src="imgs/tr.jpg" alt="Tomb Raider"></td>
+        </tr>
+        <tr>
+            <td align="center"><span>20 $CAD</span></td>
+            <td align="center"><span>15 $CAD</span></td>
+            <td align="center"><span>35 $CAD</span></td>
+            <td align="center"><span>25 $CAD</span></td>
+            <td align="center"><span>20 $CAD</span></td>
+        </tr>
+        <tr>
+            <td align="center"><button id="CODButton" onclick="addToOrder(this.id)">Buy</button></td>
+            <td align="center"><button id="PUBGButton" onclick="addToOrder(this.id)">Buy</button></td>
+            <td align="center"><button id="ACButton" onclick="addToOrder(this.id)">Buy</button></td>
+            <td align="center"><button id="NOSButton" onclick="addToOrder(this.id)">Buy</button></td>
+            <td align="center"><button id="TRButton" onclick="addToOrder(this.id)">Buy</button></td>
+        </tr>
+    </table>
+    <h2 align="center">Order Details:</h2>
+    <div class="orderDetails">
+        <p id="orderInfo">Order details will be shown here.</p>
+        <button class="resetButton" id="resetButton" onclick="resetKiosk(this.id)">Reset Order</button>
+        <button class="checkoutButton" id="checkoutButton" onclick="checkout(this.id)">Checkout</button>
+    </div>
+</body>
+
+</html>
