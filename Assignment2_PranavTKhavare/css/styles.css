@@ -4,16 +4,32 @@ body {
         'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.title h1 {
-    border: 5px solid white;
+header {
     text-align: center;
-    color: aqua;
+    padding: 20px;
+    border: 5px double white;
+}
+
+.title h1 {
+    display: inline;
+    color: aquamarine;
+    align-content: center;
 }
 
 .title h2 {
     border: 5px solid white;
     text-align: center;
-    color: aqua;
+    color: aquamarine;
+}
+
+th{
+    font-size: 30px;
+    color: white;
+}
+
+.rate td{
+    font-size: 30px;
+    color: white;
 }
 
 .cc {
@@ -28,6 +44,10 @@ img {
     height: 200px;
 }
 
+button{
+    font-size: 20px;
+}
+
 .error {
     color: aqua;
 }
@@ -35,7 +55,7 @@ img {
 label {
     width: 200px;
     display: inline-block;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     padding: 2px;
 }
@@ -59,7 +79,6 @@ form h3 {
     font-size: 30px;
     margin-left: 45px;
     margin-top: 20px;
-
 }
 
 #clear {
