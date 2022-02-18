@@ -4,7 +4,11 @@ var cookieQuantity = 0;
 var paintingsQuantity = 0;
 var chipsQuantity = 0;
 var frameQuantity = 0;
+var userName = "";
+var userEmail = "";
+var orderNum = 1;
 
+/*Global Constants */
 const posterRate = 10;
 const cookieRate = 15;
 const paintingRate = 40;
@@ -12,12 +16,13 @@ const chipsRate = 15;
 const frameRate = 25;
 const minDonation = 10;
 const donationFactor = 0.10;
-var userName = "";
-var userEmail = "";
 const saleName = "Old Age Fundraiser Sale";
-const orderNum = 1;
+var orderNum = 1;
 
-
+/**
+ * Fuction to add quantity for the selected item.
+ * @param {*} clicked_id 
+ */
 function addQuantity(clicked_id) {
     if (clicked_id != null) {
         if (clicked_id == "posterAddButton") {
@@ -43,6 +48,11 @@ function addQuantity(clicked_id) {
     }
 }
 
+/**
+ * Fuction to remove quantity for the selected item.
+ * Cannot go below 0.
+ * @param {*} clicked_id 
+ */
 function removeQuantity(clicked_id) {
     if (clicked_id != null) {
         if (clicked_id == "posterRemoveButton") {
@@ -89,6 +99,10 @@ function removeQuantity(clicked_id) {
     }
 }
 
+/**
+ * Function to submit the form and handle validations.
+ * @returns true - form submitted, false - form not submitted.
+ */
 function formSubmit() {
     var errorPresent = false;
     var name = document.getElementById("name");
@@ -181,6 +195,10 @@ function formSubmit() {
     }
 }
 
+/**
+ * Generates a string which has items selected and their rates in correct format.
+ * @returns string orderQuantities
+ */
 function calcItems() {
     posterQuantity = parseInt(document.getElementById("posterQ").value);
     cookieQuantity = parseInt(document.getElementById("cookieQ").value);
@@ -207,15 +225,19 @@ function calcItems() {
     return orderQuantities;
 }
 
+/**
+ * Generates receipt in seperate window with all details, hides the credit card number.
+ * @param {*} orderDetails 
+ */
 function generateReceipt(orderDetails) {
     var userName = document.getElementById("name").value;
     var userEmail = document.getElementById("email").value;
     var creditCardNum = document.getElementById("ccNum").value;
-    var hiddenCreditNum = creditCardNum.replace(creditCardNum.substring(0,14),"****-****-****");
+    var hiddenCreditNum = creditCardNum.replace(creditCardNum.substring(0, 14), "****-****-****");
 
     checkoutWindow = window.open("", "", 'width=400,height=400');
     checkoutWindow.document.write(
-    `*******Print Receipt*******<br>
+        `*******Print Receipt*******<br>
     <div class="orderDetails">
     <p>
     ${orderDetails}<br>
@@ -230,6 +252,11 @@ function generateReceipt(orderDetails) {
 
 }
 
+/**
+ * Calculates the Donation Amount.
+ *  10$ or 10% of the total order amount, whichever is higher.
+ * @returns 
+ */
 function calculateDonation() {
     posterQuantity = parseInt(document.getElementById("posterQ").value);
     cookieQuantity = parseInt(document.getElementById("cookieQ").value);
@@ -237,19 +264,23 @@ function calculateDonation() {
     chipsQuantity = parseInt(document.getElementById("chipsQ").value);
     frameQuantity = parseInt(document.getElementById("framesQ").value);
 
-    var  calculatedAmt = 0;
+    var calculatedAmt = 0;
     var orderTotal = calcOrderTotal();
 
     if (orderTotal > minDonation) {
         calculatedAmt = (orderTotal * donationFactor);
-    } 
-    if(calculatedAmt > minDonation){
+    }
+    if (calculatedAmt > minDonation) {
         return calculatedAmt;
-    }else{
+    } else {
         return minDonation;
     }
 }
 
+/**
+ * Calculates the order total.
+ * @returns 
+ */
 function calcOrderTotal() {
     var orderTotal = 0;
     if (posterQuantity > 0) {
@@ -270,7 +301,14 @@ function calcOrderTotal() {
     return orderTotal;
 }
 
-
+/**
+ * Displays error msgs for all the items if they are not Number.
+ * @param {*} posterQ 
+ * @param {*} cookieQ 
+ * @param {*} paintingQ 
+ * @param {*} chipsQ 
+ * @param {*} framesQ 
+ */
 function checkQuantityAsNumber(posterQ, cookieQ, paintingQ, chipsQ, framesQ) {
     if (!checkIfInt(posterQ.value)) {
         document.getElementById("posterError").innerHTML = "Quantity should be a whole Number";
@@ -289,7 +327,11 @@ function checkQuantityAsNumber(posterQ, cookieQ, paintingQ, chipsQ, framesQ) {
     }
 }
 
-
+/**
+ * Checks if the entered quantity is number or not using regex.
+ * @param {*} value 
+ * @returns 
+ */
 function checkIfInt(value) {
     var numRegex = /^\d+$/;
     var valid = numRegex.test(value);
@@ -300,7 +342,11 @@ function checkIfInt(value) {
     }
 }
 
-
+/**
+ * Checks if quantity is null or blank or less than 0.
+ * @param {*} value 
+ * @returns 
+ */
 function checkIntValue(value) {
     if (value.value <= 0 || value.value == null ||
         value.value == undefined || value.value === '' || value.value.trim() === '') {
@@ -310,6 +356,11 @@ function checkIntValue(value) {
     }
 }
 
+/**
+ * Checks if value is null or blank.
+ * @param {*} value 
+ * @returns 
+ */
 function isStringValueEmpty(value) {
     if (value == null || value == undefined ||
         value === '' || value.trim() === '') {

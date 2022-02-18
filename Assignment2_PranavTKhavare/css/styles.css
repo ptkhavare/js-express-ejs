@@ -5,18 +5,20 @@ body {
 }
 
 .title h1 {
+    border: 5px solid white;
     text-align: center;
     color: aqua;
 }
 
 .title h2 {
+    border: 5px solid white;
     text-align: center;
     color: aqua;
 }
 
-.cc{
+.cc {
     border: 1px solid aqua;
-    display:block;
+    display: block;
     padding: 20px;
 }
 
@@ -51,4 +53,16 @@ form {
 form h3 {
     text-align: center;
     color: aqua;
+}
+
+#submit {
+    font-size: 30px;
+    margin-left: 45px;
+    margin-top: 20px;
+
+}
+
+#clear {
+    font-size: 30px;
+    margin-left: 100px;
 }
