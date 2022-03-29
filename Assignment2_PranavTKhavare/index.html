@@ -1,0 +1,163 @@
+<!--Student Name : Pranav Tanaji Khavare-->
+<!--Student Email-ID : pkhavare7831@conestogac.on.ca-->
+<!--Student ID : 8807831-->
+<!--Assignment 2-->
+<!DOCTYPE html>
+<html lang="en">
+<noscript>
+    Sorry, your browser doesn't support JavaScript.
+</noscript>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/garageSale.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Oneline Garage Sale Fundraiser</title>
+</head>
+
+<body>
+    <div class="title">
+        <header>
+            <h1>Welcome to the Online Garage Sale</h1>
+        </header>
+        <section>
+            <h2>10% or 10$ of Every Purchase will be donated to Community Old Age Home</h2>
+        </section>
+    </div>
+    <div class="Items">
+        <table class="mainItemTable" style="width:100%;">
+            <tr>
+                <th>Posters</th>
+                <th>Cookie Box</th>
+                <th>Paintings</th>
+                <th>Homemade Chips</th>
+                <th>Photo Frame</th>
+            </tr>
+            <tr>
+                <td><img src="img/poster.jpg" alt="Posters"></td>
+                <td><img src="img/cookiebox.jpg" alt="Cookie Box"></td>
+                <td><img src="img/painting.jpg" alt="Paintings"></td>
+                <td><img src="img/chipsbox.jpg" alt="Homemade Chips"></td>
+                <td><img src="img/photoframe.jpg" alt="Photo Frame"></td>
+            </tr>
+            <tr class="rate">
+                <td align="center"><span>20 $CAD</span></td>
+                <td align="center"><span>15 $CAD</span></td>
+                <td align="center"><span>40 $CAD</span></td>
+                <td align="center"><span>15 $CAD</span></td>
+                <td align="center"><span>25 $CAD</span></td>
+            </tr>
+            <tr>
+                <td align="center"><button id="posterAddButton" onclick="addQuantity(this.id)">Add</button></td>
+                <td align="center"><button id="cookieAddButton" onclick="addQuantity(this.id)">Add</button></td>
+                <td align="center"><button id="paintingsAddButton" onclick="addQuantity(this.id)">Add</button></td>
+                <td align="center"><button id="chipsAddButton" onclick="addQuantity(this.id)">Add</button></td>
+                <td align="center"><button id="frameAddButton" onclick="addQuantity(this.id)">Add</button></td>
+            </tr>
+            <tr>
+                <td align="center"><button id="posterRemoveButton" onclick="removeQuantity(this.id)">Remove</button>
+                </td>
+                <td align="center"><button id="cookieRemoveButton" onclick="removeQuantity(this.id)">Remove</button>
+                </td>
+                <td align="center"><button id="paintingsRemoveButton" onclick="removeQuantity(this.id)">Remove</button>
+                </td>
+                <td align="center"><button id="chipsRemoveButton" onclick="removeQuantity(this.id)">Remove</button></td>
+                <td align="center"><button id="frameRemoveButton" onclick="removeQuantity(this.id)">Remove</button></td>
+            </tr>
+        </table>
+    </div>
+    <div class="formDiv">
+        <form name="saleForm" action="" method="post" onsubmit=" return formSubmit();">
+            <h3>Garage Sale Purchase Form</h3>
+
+            <!--Name-->
+            <div class="error">
+                <span id="nameError"></span>
+            </div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" placeholder="FirstName LastName"> <br>
+
+
+            <!--Email-->
+            <div class="error">
+                <span id="emailError"></span>
+            </div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="email@domain.com"> <br />
+
+
+            <!--Credit Card number-->
+            <div class="cc">
+                <div class="error">
+                    <span id="ccNumError"></span>
+                </div>
+                <label for="cc">Credit Card: </label>
+                <input type="text" name="cc" id="ccNum" placeholder="xxxx-xxxx-xxxx-xxxx"> <br>
+
+                <!--Credit Card Month-->
+                <div class="error">
+                    <span id="ccMonthError"></span>
+                </div>
+                <label for="cc">Expiry Month: </label>
+                <input type="text" name="month" id="ccMonth" placeholder="MMM"> <br>
+
+                <!--Credit Card Year-->
+                <div class="error">
+                    <span id="ccYearError"></span>
+                </div>
+                <label for="cc">Expiry Year: </label>
+                <input type="text" name="year" id="ccYear" placeholder="YYYY"> <br>
+            </div>
+
+
+            <label>Item Quantity</label>
+            <div class="error">
+                <span id="quantityError"></span>
+            </div>
+            <!--Poster Quantity-->
+            <div class="error">
+                <span id="posterError"></span>
+            </div>
+            <label for="posterQ">&nbsp Poster: </label>
+            <input type="text" name="posterQ" id="posterQ" placeholder="0" value=0> <br>
+
+            <!--Cookie Box Quantity-->
+            <div class="error">
+                <span id="cookieError"></span>
+            </div>
+            <label for="cookieQ">&nbsp Cookie Box: </label>
+            <input type="text" name="cookieQ" id="cookieQ" placeholder="0" value=0> <br>
+
+            <!--Paintings Quantity-->
+            <div class="error">
+                <span id="paintingError"></span>
+            </div>
+            <label for="paintingQ">&nbsp Paintings: </label>
+            <input type="text" name="paintingQ" id="paintingQ" placeholder="0" value=0> <br>
+
+            <!--Chips Quantity-->
+            <div class="error">
+                <span id="chipsError"></span>
+            </div>
+            <label for="chipsQ">&nbsp Homemade Chips: </label>
+            <input type="text" name="chipsQ" id="chipsQ" placeholder="0" value=0> <br>
+
+            <!--Frames Quantity-->
+            <div class="error">
+                <span id="framesError"></span>
+            </div>
+            <label for="framesQ">&nbsp Photo Frames: </label>
+            <input type="text" name="framesQ" id="framesQ" placeholder="0" value=0> <br>
+
+            <!--Submit-->
+            <input type="submit" id="submit" value="Submit">
+
+            <!--Clear values-->
+            <input type="reset" id="clear" value="Clear">
+        </form>
+    </div>
+</body>
+
+</html>

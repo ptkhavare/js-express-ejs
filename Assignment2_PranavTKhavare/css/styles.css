@@ -1,0 +1,87 @@
+body {
+    background-color: #4582B4;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+        'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border: 5px double white;
+}
+
+.title h1 {
+    display: inline;
+    color: aquamarine;
+    align-content: center;
+}
+
+.title h2 {
+    border: 5px solid white;
+    text-align: center;
+    color: aquamarine;
+}
+
+th{
+    font-size: 30px;
+    color: white;
+}
+
+.rate td{
+    font-size: 30px;
+    color: white;
+}
+
+.cc {
+    border: 1px solid aqua;
+    display: block;
+    padding: 20px;
+}
+
+img {
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 200px;
+}
+
+button{
+    font-size: 20px;
+}
+
+.error {
+    color: aqua;
+}
+
+label {
+    width: 200px;
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    padding: 2px;
+}
+
+form {
+    width: 380px;
+    background-color: #04355D;
+    padding: 30px;
+    border: 3px solid black;
+    box-shadow: 0 0 30px aqua;
+    border-radius: 10px;
+    margin: 50px auto;
+}
+
+form h3 {
+    text-align: center;
+    color: aqua;
+}
+
+#submit {
+    font-size: 30px;
+    margin-left: 45px;
+    margin-top: 20px;
+}
+
+#clear {
+    font-size: 30px;
+    margin-left: 100px;
+}
