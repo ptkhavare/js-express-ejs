@@ -77,13 +77,12 @@ app.post(
     ),
   ],
   (req, res) => {
-    
     var errors = validationResult(req);
-    
-
+    uiErrors = errors.array();
     if (!errors.isEmpty()) {
-      res.render("home", (uiErrors = errors.array()));
+      res.render("home", uiErrors);
     } else {
+
       let name = req.body.name;
       let email = req.body.email;
       let phone = req.body.phone;
@@ -116,7 +115,7 @@ app.post(
           address: address,
           city: city,
           province: province,
-          provinceTax: provinceTax,
+          provinceTax: provinceTax * 100,
           photoshopQuantity: photoshopQuantity,
           lightroomQuantity: lightroomQuantity,
           wallpapersQuantity: wallpapersQuantity,
