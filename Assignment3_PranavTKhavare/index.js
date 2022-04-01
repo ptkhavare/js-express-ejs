@@ -17,7 +17,9 @@ app.set("view engine", "ejs");
 //----------------------- Validations -----------------------
 
 //Regex constants
-let phoneRegex = /^[0-9]{3}\-?[0-9]{3}\-?[0-9]{4}$/;
+
+//phone number - 1231231234 or 123-123-1234
+let phoneRegex = /^[0-9]{3}\-?[0-9]{3}\-?[0-9]{4}$/; 
 
 const checkRegex = (input, regex) => {
   if (regex.test(input)) {
@@ -75,8 +77,9 @@ app.post(
     ),
   ],
   (req, res) => {
-    const errors = validationResult(req);
-    console.log(errors);
+    
+    var errors = validationResult(req);
+    
 
     if (!errors.isEmpty()) {
       res.render("home", (uiErrors = errors.array()));
@@ -90,18 +93,17 @@ app.post(
       let photoshopQuantity = req.body.photoshop;
       let lightroomQuantity = req.body.lightroom;
       let wallpapersQuantity = req.body.wallpapers;
-
       let subTotal =
         photoshopQuantity * photoshopRate +
         lightroomQuantity * lightroomRate +
         wallpapersQuantity * wallpapersRate;
-
-      let tax = subTotal * provinceTaxes.get(province);
+      let provinceTax = provinceTaxes.get(province);
+      let tax = subTotal * provinceTax;
       let total = subTotal + tax;
 
       let pageData;
 
-      if (total < 10) {
+      if (total <= 10) {
         pageData = {
           error: "Minimum purchase should be more than 10$",
         };
@@ -114,6 +116,7 @@ app.post(
           address: address,
           city: city,
           province: province,
+          provinceTax: provinceTax,
           photoshopQuantity: photoshopQuantity,
           lightroomQuantity: lightroomQuantity,
           wallpapersQuantity: wallpapersQuantity,
@@ -126,8 +129,6 @@ app.post(
         };
         res.render("home", pageData);
       }
-
-      res.render("home", pageData);
     }
   }
 );
