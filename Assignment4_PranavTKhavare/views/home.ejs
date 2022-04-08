@@ -1,0 +1,229 @@
+<%- include('layouts/header'); -%>
+
+  <body>
+    <header class="top">
+      <h1>
+        SkyHigh Softwares
+        <small class="text-muted">Pioneers in creative softwares!</small>
+      </h1>
+    </header>
+    </br>
+    <%- include('layouts/nav'); -%>
+      </br>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm" align="center">SkyHigh Photoshop Pro
+            </br>
+            <img src="imgs/photoshop.png" alt="Photoshop" width="200" height="200"></img>
+            </br>
+            <span class="font-weight-bold">$50</span>
+          </div>
+          <div class="col-sm" align="center">SkyHigh Lightroom Pro
+            </br>
+            <img src="imgs/lightroom.png" alt="Photoshop" width="200" height="200"></img>
+            </br>
+            <span class="font-weight-bold">$30</span>
+          </div>
+          <div class="col-sm" align="center">SkyHigh Wallpapers
+            </br>
+            <img src="imgs/wallpapers.jpg" alt="Photoshop" width="200" height="200"></img>
+            </br>
+            <span class="font-weight-bold">$5</span>
+          </div>
+        </div>
+      </div>
+      <section class="orderForm">
+        <form name="orderForm" method="POST" action="/">
+          <label>Name</label>
+          <input id="name" placeholder="FristName LastName" type="text" name="name" /><br />
+
+          <label>Email</label>
+          <input id="email" placeholder="test@test.com" type="text" name="email" /><br />
+
+          <label>Phone</label>
+          <input id="phone" placeholder="5198201234" type="phone" name="phone" /><br />
+
+          <label>Address</label>
+          <input id="address" placeholder="" type="text" name="address" /><br />
+
+          <label>City</label>
+          <input id="city" placeholder="Toronto" type="text" name="city" /><br />
+
+          <label>Post Code</label>
+          <input id="postCode" placeholder="N4J5H6" type="text" name="postCode" max="6" />
+
+          <label>Province</label>
+          <select name="province" id="province">
+            <option value="">Select</option>
+            <option value="AB">AB</option>
+            <option value="BC">BC</option>
+            <option value="MB">MB</option>
+            <option value="NB">NB</option>
+            <option value="NL">NL</option>
+            <option value="NT">NT</option>
+            <option value="NS">NS</option>
+            <option value="NU">NU</option>
+            <option value="ON">ON</option>
+            <option value="PE">PE</option>
+            <option value="QC">QC</option>
+            <option value="SK">SK</option>
+            <option value="YT">YT</option>
+          </select>
+          <br />
+          <label>Photoshop Pro Quantity</label>
+          <input id="photoshop" placeholder="" type="number" name="photoshop" min="0" /><br />
+
+          <label>Lightroom Pro Quantity</label>
+          <input id="lightroom" placeholder="" type="number" name="lightroom" min="0" /><br />
+
+          <label>Wallpapers Quantity</label>
+          <input id="wallpapers" placeholder="" type="number" name="wallpapers" min="0" />
+          <br />
+
+          <label>Delivery Time</label>
+          <select name="deliveryTime" id="deliveryTime">
+            <option value="">Select</option>
+            <option value="1">1 DAY</option>
+            <option value="2">2 DAYS</option>
+            <option value="3">3 DAYS</option>
+            <option value="4">4 DAYS</option>
+            <option value="5">5 DAYS</option>
+          </select>
+          <br />
+
+          <br />
+          <input type="submit" value="Submit" />
+          <br />
+        </form>
+      </section>
+      <section class="orderForm">
+        <div class="formData">
+          <!-- Logic to show errors on the home page. -->
+          <% if (typeof(uiErrors) !='undefined' ) { for (let error of uiErrors) { %>
+            <p class="errors">
+              <%= error.msg %>
+            </p>
+            <% } } %>
+
+              <!-- Logic to show error when total is not more than 10$ -->
+              <% if(typeof(error) !='undefined' ) { %>
+                <p class="errors">
+                  <%= error %>
+                </p>
+                <% } %>
+                  <!-- Logic to show receipt if there were no validation errors -->
+                  <% if(typeof(total) !='undefined' ) { %>
+                    <p id="formResult">Your Receipt:</p>
+                    <table class="formTable">
+                      <tr>
+                        <th>Name:</th>
+                        <td>
+                          <%= name %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Email:</th>
+                        <td>
+                          <%= email %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Phone:</th>
+                        <td>
+                          <%= phone %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Address:</th>
+                        <td>
+                          <%= address %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>City:</th>
+                        <td>
+                          <%= city %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Province:</th>
+                        <td>
+                          <%= province %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Post Code:</th>
+                        <td>
+                          <%= postCode %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Province Tax:</th>
+                        <td>
+                          <%= provinceTax %>%
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Photoshop Quantity:</th>
+                        <td>
+                          <%= photoshopQuantity %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Lightroom Quantity:</th>
+                        <td>
+                          <%= lightroomQuantity %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Wallpapers Quantity:</th>
+                        <td>
+                          <%= wallpapersQuantity %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Photoshop Rate:</th>
+                        <td>
+                          $<%= photoshopRate.toFixed(2) %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Lightroom Rate:</th>
+                        <td>
+                          $<%= lightroomRate.toFixed(2) %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Wallpapers Rate:</th>
+                        <td>
+                          $<%= wallpapersRate.toFixed(2) %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Delivery Time(Days):</th>
+                        <td>
+                          <%= deliveryTime %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Sub Total:</th>
+                        <td>$<%= subTotal.toFixed(2) %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Tax:</th>
+                        <td>$<%= tax.toFixed(2) %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Total:</th>
+                        <td>$<%= total.toFixed(2) %>
+                        </td>
+                      </tr>
+                    </table>
+                    <% } %>
+        </div>
+      </section>
+      </main>
+  </body>
+  <%- include('layouts/footer'); -%>

@@ -1,0 +1,142 @@
+body {
+  width: 1120px;
+  margin: 10px auto;
+  padding: 30px;
+  font-family: sans-serif;
+  background-color: #96bdcc;
+}
+
+.orderForm {
+  width: 48%;
+  float: left;
+  margin: 1%;
+}
+
+.clear {
+  clear: both;
+}
+
+table {
+  border: 2px solid white;
+  border-collapse: collapse;
+  margin: 20px auto;
+  color: white;
+}
+
+td,
+th {
+  border: 2px solid white;
+  padding: 5px 4px;
+}
+
+#errors {
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+}
+
+form,
+.formData {
+  width: 380px;
+  border: 3px solid white;
+  box-shadow: 0 0 10px #2c2c2c;
+  padding: 30px;
+  margin: 50px auto;
+  color: white;
+  background-color: #13262f;
+  border-radius: 20px;
+}
+
+label {
+  width: 170px;
+  display: inline-block;
+  font-size: 18px;
+  color: white;
+}
+
+input:not([type="radio"]),
+select {
+  font-size: 16px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 5px 10px;
+}
+
+input:not([type="radio"]) {
+  width: 250px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 190px;
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  font-size: 22px;
+  background-color: #bc2990;
+  color: #e9e6ff;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 0px;
+  padding: 10px;
+  height: 50px;
+  box-shadow: 4px 4px 0px #8c087a;
+  border-radius: 8px;
+}
+
+input[type="submit"]:active {
+  box-shadow: -4px -4px 0px #2519d7;
+}
+
+.top_menu {
+  background-color: #2519d7;
+  border: 3px solid white;
+  box-shadow: 0 0 10px #2c2c2c;
+  color: white;
+  border-radius: 20px;
+}
+
+.top_menu ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+}
+
+.top_menu ul li {
+  display: inline-block;
+  width: 130px;
+}
+
+.top_menu ul li:hover {
+  background-color: #0781b2;
+}
+
+.top_menu ul li a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 0;
+  display: block;
+}
+
+.orderTable {
+  height: 500px;
+  width: 1050px;
+  overflow: auto;
+  background: #2c2c2c;
+}
+
+td,
+th {
+  color: #7ff092;
+  border: 2px solid;
+}

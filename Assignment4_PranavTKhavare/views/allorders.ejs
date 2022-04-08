@@ -1,0 +1,55 @@
+<%- include('layouts/header'); -%>
+<body>
+  <%- include('layouts/nav'); -%>
+  <section>
+    <div class="orderTable">
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>Province</th>
+          <th>Post Code</th>
+          <th>Province Tax</th>
+          <th>Photoshop Quantity</th>
+          <th>Lightroom Quantity</th>
+          <th>Wallpapers Quantity</th>
+          <th>Photoshop Rate</th>
+          <th>Lightroom Rate</th>
+          <th>Wallpapers Rate</th>
+          <th>Delivery Time</th>
+          <th>Sub Total</th>
+          <th>Tax</th>
+          <th>Total</th>
+        </thead>
+        <tbody>
+          <% for (var order of orders) { %>
+          <tr>
+            <td><%= order.name %></td>
+            <td><%= order.email %></td>
+            <td><%= order.phone %></td>
+            <td><%= order.address %></td>
+            <td><%= order.city %></td>
+            <td><%= order.province %></td>
+            <td><%= order.postCode %></td>
+            <td><%= order.provinceTax.toFixed(2) %>%</td>
+            <td><%= order.photoshopQuantity %></td>
+            <td><%= order.lightroomQuantity %></td>
+            <td><%= order.wallpapersQuantity %></td>
+            <td>$<%= order.photoshopRate %></td>
+            <td>$<%= order.lightroomRate %></td>
+            <td>$<%= order.wallpapersRate %></td>
+            <td><%= order.deliveryTime %></td>
+            <td>$<%= order.subTotal.toFixed(2) %></td>
+            <td>$<%= order.tax.toFixed(2) %></td>
+            <td>$<%= order.total.toFixed(2) %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+<%- include('layouts/footer'); -%>
