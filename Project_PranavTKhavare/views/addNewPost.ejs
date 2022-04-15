@@ -1,0 +1,41 @@
+<%- include('layouts/head'); -%>
+
+    <body>
+        <%- include('layouts/header'); -%>
+            </br>
+            <%- include('layouts/nav'); -%>
+                </br>
+                <main>
+                    <div class="row">
+                        <div class="middle">
+                            <form class="blogPost" name="blogPostForm" method="post" enctype="multipart/form-data"
+                                action="/addNewPost">
+                                <div>
+                                    <label for="title">Title : </label>
+                                    <input name="title" id="title" type="text" />
+                                </div>
+
+                                <div>
+                                    <label for="editor1">Description : </label>
+                                    <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                    </textarea>
+                                    <!-- <script type="text/javascript">
+                                        // Replace the <textarea id="editor1"> with a CKEditor 4
+                                        // instance, using default configuration.
+                                        CKEDITOR.replace('editor1');
+                                    </script> -->
+                                </div>
+                                <div>
+                                    <label for="image">Upload Image:</label>
+                                    <input type="file" name="image">
+                                </div>
+                                <div>
+                                    <input type="reset">
+                                    <input type="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+    </body>
+    <%- include('layouts/footer'); -%>

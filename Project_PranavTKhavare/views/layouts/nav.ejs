@@ -1,0 +1,20 @@
+<nav class="top_menu">
+  <ul>
+    <li>
+      <a href="/">Blog</a>
+    </li>
+    <li>
+      <a>Blog Posts</a>
+      <ul>
+        <% for(let post of posts){ %>
+          <li><a href="/nav/<%= post._id %>">
+              <%= post.title %>
+            </a></li>
+          <% } %>
+      </ul>
+    </li>
+    <li>
+      <a href="/adminPanel">Admin Panel</a>
+    </li>
+  </ul>
+</nav>

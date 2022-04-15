@@ -1,0 +1,38 @@
+<%- include('layouts/head'); -%>
+
+  <body>
+    <%- include('layouts/header'); -%>
+      </br>
+      <%- include('layouts/nav'); -%>
+        </br>
+        <main>
+          <div class="row">
+            <div class="middle all-posts">
+              <% for(let post of posts){ %>
+                <table>
+                  <tr>
+                    <th>Title:</th>
+                    <td>
+                      <%= post.title %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Description:</th>
+                    <td>
+                      <%- post.description %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Image:</th>
+                    <td>
+                      <img src="<%= post.imageName %>" alt="Blog Image" width="300" height="200" />
+                    </td>
+                  </tr>
+                </table>
+                <br />
+                <% } %>
+            </div>
+          </div>
+        </main>
+  </body>
+  <%- include('layouts/footer'); -%>

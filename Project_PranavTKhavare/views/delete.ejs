@@ -1,0 +1,32 @@
+<%- include('layouts/head'); -%>
+
+    <body>
+        <%- include('layouts/header'); -%>
+            </br>
+            <nav class="top_menu">
+                <ul>
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    <li>
+                        <a>Blog Posts</a>
+                        <ul>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/adminPanel">Admin Panel</a>
+                    </li>
+                </ul>
+            </nav>
+            </br>
+            <main>
+                <div class="row">
+                    <div class="middle all-posts">
+                        <p>
+                            <%= message %>
+                        </p>
+                    </div>
+                </div>
+            </main>
+    </body>
+    <%- include('layouts/footer'); -%>

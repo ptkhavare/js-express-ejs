@@ -1,0 +1,37 @@
+<%- include('layouts/head'); -%>
+
+    <body>
+        <%- include('layouts/header'); -%>
+            </br>
+            <%- include('layouts/nav'); -%>
+                </br>
+                <main>
+                    <div class="row">
+                        <div class="middle">
+                            <div class="login-style">
+                                <form name="blogPostForm" method="Post" action="/login">
+                                    <div>
+                                        <label for="username">Username : </label>
+                                        <input name="username" id="username" type="text" autofocus />
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <label for="password">Password : </label>
+                                        <input name="password" id="password" type="password" />
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <input type="submit" value="Login">
+                                    </div>
+                                </form>
+                                <p id="errors">
+                                    <% if (typeof(error) !=='undefined' ) { %>
+                                        <%= error %>
+                                            <% } %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+    </body>
+    <%- include('layouts/footer'); -%>

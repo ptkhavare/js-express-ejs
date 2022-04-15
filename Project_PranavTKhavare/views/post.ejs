@@ -1,0 +1,51 @@
+<%- include('layouts/head'); -%>
+
+    <body>
+        <%- include('layouts/header'); -%>
+            </br>
+            <nav class="top_menu">
+                <ul>
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    <li>
+                        <a>Blog Posts</a>
+                        <ul>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/adminPanel">Admin Panel</a>
+                    </li>
+                </ul>
+            </nav>
+            <br />
+            </br>
+            <main>
+                <div class="row">
+                    <div class="middle all-posts">
+                        <table>
+                            <tr>
+                                <th>Title:</th>
+                                <td>
+                                    <%= blogPost.title %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Description:</th>
+                                <td>
+                                    <%- blogPost.description %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Image:</th>
+                                <td>
+                                    <img src="/<%= blogPost.imageName %>" alt="Blog Image" width="300" height="200" />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                    </div>
+                </div>
+            </main>
+    </body>
+    <%- include('layouts/footer'); -%>

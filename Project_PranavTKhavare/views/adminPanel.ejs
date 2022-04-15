@@ -1,0 +1,60 @@
+<%- include('layouts/head'); -%>
+
+    <body>
+        <%- include('layouts/header'); -%>
+            </br>
+            <%- include('layouts/nav'); -%>
+                </br>
+                <main>
+                    <div class="row">
+                        <div class="middle">
+                            <div class="new-post-btn">
+                                <form action="/addNewPost" method="get">
+                                    <input type="submit" value="ADD NEW POST" />
+                                </form>
+                            </div>
+                            <div class="logout-btn">
+                                <form action="/logout" method="get">
+                                    <input type="submit" value="LOGOUT" />
+                                </form>
+                            </div>
+                            <br />
+                        </div>
+
+                        <div class="admin-posts">
+                            <table>
+                                <thead>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                </thead>
+                                <tbody>
+                                    <% for(let post of posts){%>
+                                        <tr>
+                                            <td>
+                                                <%= post.title %>
+                                            </td>
+                                            <td>
+                                                <%- post.description %>
+                                            </td>
+                                            <td><img src="/<%= post.imageName %>" alt="Blog Image" width="200"
+                                                    height="100" /></td>
+                                            <td>
+                                                <a href="/delete/<%= post._id %>">Delete</a>
+                                            </td>
+                                            <td>
+                                                <a href="/edit/<%= post._id %>">Edit</a>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </main>
+    </body>
+    <%- include('layouts/footer'); -%>
